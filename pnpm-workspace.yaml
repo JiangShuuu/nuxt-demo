@@ -1,4 +1,3 @@
 packages:
   - "app"
-  - "base"
-  - "layer-two"
+  - "layer"
