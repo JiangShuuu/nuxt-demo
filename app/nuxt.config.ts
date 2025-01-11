@@ -7,6 +7,18 @@ const uiDir = join(currentDir, '../ui')  // 指向 ui 專案目錄
 export default defineNuxtConfig({
   extends: '../ui',
 
+  modules: [
+    '@sidebase/nuxt-auth'
+  ],
+  auth: {
+    provider: {
+      type: 'authjs',
+      trustHost: false,
+      defaultProvider: 'github',
+      addDefaultCallbackUrl: true
+    }
+  },
+
   // 指定 shadcn 組件目錄為 ui 專案的目錄
   shadcn: {
     prefix: '',
@@ -21,5 +33,5 @@ export default defineNuxtConfig({
     }
   ],
 
-  compatibilityDate: '2025-01-11'
+  compatibilityDate: '2025-01-11',
 })
