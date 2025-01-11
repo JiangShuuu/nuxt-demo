@@ -17,8 +17,28 @@ const demoCredentials = { username: "test", password: "hunter2" };
   <div class="space-y-2">
     <p>Sign-In Options:</p>
     <div class="flex space-x-2">
-      <Button @click="signIn('github')">Github</Button>
-      <Button @click="signIn('google')">Google</Button>
+      <Button
+        @click="
+          signIn('github', {
+            // redirectTo: '/login/success',
+            callbackUrl: '/login/success',
+            redirect: false,
+            error: (error: any) => {
+              console.log('error', error);
+            },
+          })
+        "
+        >Github</Button
+      >
+      <Button
+        @click="
+          signIn('google', {
+            redirectTo: '/login/success',
+            callbackUrl: '/login/success',
+          })
+        "
+        >Google</Button
+      >
       <Button @click="signIn('credentials', demoCredentials)">
         Username and Password
       </Button>

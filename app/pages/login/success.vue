@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 const { status, loading, data, lastRefreshedAt } = useAuthState();
-const { signOut } = useAuth();
+const { signOut, getSession } = useAuth();
+
+const session = await getSession();
+
+console.log("getSession", session);
 </script>
 
 <template>

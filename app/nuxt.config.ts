@@ -32,6 +32,11 @@ export default defineNuxtConfig({
       extensions: ['.vue']
     }
   ],
-
+  runtimeConfig: {
+    authSecret: process.env.AUTH_SECRET,
+  },
   compatibilityDate: '2025-01-11',
+  devServer: {
+    port: 8080,
+  },
 })
