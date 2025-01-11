@@ -24,6 +24,7 @@
     "@radix-icons/vue": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "nuxt-icon": "1.0.0-beta.7",
     "radix-vue": "^1.9.12",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
