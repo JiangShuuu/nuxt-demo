@@ -1,28 +1,18 @@
 <script lang="ts" setup>
-const { status, loading, data, lastRefreshedAt } = useAuthState();
-const { signOut, getSession } = useAuth();
-
-const session = await getSession();
-
-console.log("getSession", session);
+const { loggedIn, user, session, fetch, clear } = useUserSession();
 </script>
 
 <template>
   <div class="space-y-2">
     <h1>Login Success Page</h1>
-    <div class="space-y-2 border divide-y-2 divide divide-gray-200">
-      <p>Status: {{ status }}</p>
-      <p>Loading: {{ loading }}</p>
-      <p>Data: {{ data }}</p>
-      <p>Last Refreshed At: {{ lastRefreshedAt }}</p>
+    <div v-if="loggedIn && user">
+      <h1>Welcome {{ user }}!</h1>
+      <p>Logged in since {{ session.loggedInAt }}</p>
+      <button @click="clear">Logout</button>
     </div>
-    <Button
-      @click="
-        signOut({
-          callbackUrl: '/login',
-        })
-      "
-      >Sign Out</Button
-    >
+    <div v-else>
+      <h1>Not logged in</h1>
+      <a href="/api/auth/github">Login with GitHub</a>
+    </div>
   </div>
 </template>
