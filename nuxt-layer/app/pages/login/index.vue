@@ -1,11 +1,15 @@
 <script lang="ts" setup>
-const handleLogin = () => {
-  navigateTo("/api/auth/github", { external: true });
+const handleLogin = (path: string) => {
+  navigateTo(`/api/auth/${path}`, { external: true });
 };
 </script>
 
 <template>
-  <div>
-    <Button @click="handleLogin">GitHub Login</Button>
+  <div class="h-screen flex flex-col justify-center items-center">
+    <h2 class="text-2xl font-bold mb-10">Login Page</h2>
+    <div class="space-x-3">
+      <Button @click="handleLogin('github')">GitHub Login</Button>
+      <Button @click="handleLogin('google')">Google Login</Button>
+    </div>
   </div>
 </template>
